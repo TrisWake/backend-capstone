@@ -15,7 +15,7 @@ const flightSearch = async (req, res)=>{
     const url = `https://serpapi.com/search?engine=google_flights&departure_id=${origin}&arrival_id=${destination}&outbound_date=${departureDate}&return_date=${returnDate}&api_key=${API_KEY}`
     console.log(url)
         const response = await axios.get(url)
-        res.json({message: "Flights Loading", payload: response})
+        res.json({message: "Flights Loading", payload: response.data})
     } catch (error) {
         res.status(500).json({message:"Error.", error: error.message})
     }
