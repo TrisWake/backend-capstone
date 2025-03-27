@@ -18,7 +18,13 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         unique: true
+    },
+    todos: {
+        type:[mongoose.Schema.ObjectId],
+        ref: "todo",
+        default: []
     }
+    //re-write a route 
 })
 
 module.exports = mongoose.model('user', userSchema)
